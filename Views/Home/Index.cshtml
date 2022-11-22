@@ -1,0 +1,99 @@
+﻿@*@model UserModel*@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@*@if (Model.IsAdmin)
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <h1 class="display-4">IsAdmin True </h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        </div>
+    }
+    else
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <h1 class="display-4">IsAdmin False </h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+        </div>
+    }*@
+
+<style type="text/css">
+    #maket {
+        width: 100%; /* Ширина всей таблицы */
+    }
+    #TD {
+        padding: 5px; /* Поля вокруг содержимого ячеек */
+        vertical-align: top; /* Выравнивание по верхнему краю ячеек */
+    }
+    TD#rightcol {
+        width: 200px; /* Ширина левой колонки */
+    }
+    li {
+        list-style-type: none; /* Убираем маркеры */
+    }
+    ul {
+        margin-left: 0; /* Отступ слева в браузере IE и Opera */
+        padding-left: 0; /* Отступ слева в браузере Firefox, Safari, Chrome */
+    }
+</style>
+<body>
+    <table width="100%" cellspacing="0" id="maket">
+        <tr>
+            <td id="leftcol">
+                <section class="jumbotron text-center">
+                    <div class="container">
+                        <h1>Welcome to Bookstore</h1>
+                        <p class="lead text-muted">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                        <p>
+                            <a href="#" class="btn btn-primary my-2">Search books</a>
+                        </p>
+                    </div>
+                </section>
+
+                <div class="py-5 bg-light">
+                    <div class="container">
+                        <h3 class="h3">Популярные категории</h3>
+                        @*@await Component.InvokeAsync("TopBooks", new { count = 3 })*@
+
+                        @*<vc:top-books count="6" ></vc:top-books>*@
+
+                    </div>
+                </div>
+
+                <div class="py-5 bg-light">
+                    <div class="container">
+                        <h3 class="h3">Популярные авторы</h3>
+                        @*@await Component.InvokeAsync("TopBooks", new { count = 3 })*@
+
+                        @*<vc:top-books count="6" ></vc:top-books>*@
+
+                    </div>
+                </div>
+
+            </td>
+            <td valign="top">
+                <section class="jumbotron text-center">
+                    <div class="container">
+                        <h1>Categories</h1>
+                        <p class="lead text-muted">
+                            Bla Bla Bla
+                        </p>
+                        <ul>
+                            @foreach (var category in ViewBag.Categories)
+                            {
+                                <li><a href="#">@category.Name</a></li>
+                            }
+                        </ul>
+                    </div>
+                </section>
+            </td>
+        </tr>
+    </table>
+</body>
+

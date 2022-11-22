@@ -1,0 +1,11 @@
+﻿@model IEnumerable<BookModel>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<table class="table">
+    @foreach (BookModel book in Model)
+    {
+        <tr><td>@book.Name</td></tr>
+    }
+</table>
